@@ -91,6 +91,10 @@ npm run test:e2e
 
 Ensure the web service uses the Dockerfile (defined in `render.yaml`).
 
+**Postgres TLS:** On boot, `applyDatabaseUrlFromEnv()` appends `sslmode=require` when `DATABASE_SSL` is not `false` (enabled in `render.yaml`). Local Docker Compose sets `DATABASE_SSL=false`.
+
+**Prisma:** Seed and migration paths live in `prisma.config.ts` (not `package.json#prisma`). The Docker image copies `prisma/` before `npm ci` so `postinstall` → `prisma generate` succeeds.
+
 ## Scripts
 
 | Script | Purpose |
