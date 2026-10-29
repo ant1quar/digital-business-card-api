@@ -1,0 +1,25 @@
+databases:
+  - name: business-card-db
+    plan: free
+    databaseName: business_card
+    user: business_card
+
+services:
+  - type: web
+    name: digital-business-card-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: business-card-db
+          property: connectionString
+      - key: GRAPHQL_INTROSPECTION
+        value: 'true'
+      - key: GRAPHQL_PLAYGROUND
+        value: 'true'
