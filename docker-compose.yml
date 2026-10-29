@@ -27,6 +27,7 @@ services:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/business_card?schema=public
       GRAPHQL_INTROSPECTION: 'true'
       GRAPHQL_PLAYGROUND: 'true'
+      DATABASE_SSL: 'false'
     depends_on:
       db:
         condition: service_healthy

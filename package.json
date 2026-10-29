@@ -81,8 +81,5 @@
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/$1"
     }
-  },
-  "prisma": {
-    "seed": "ts-node --transpile-only prisma/seed.ts"
   }
 }

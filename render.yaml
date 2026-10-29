@@ -23,3 +23,5 @@ services:
         value: 'true'
       - key: GRAPHQL_PLAYGROUND
         value: 'true'
+      - key: DATABASE_SSL
+        value: 'true'
